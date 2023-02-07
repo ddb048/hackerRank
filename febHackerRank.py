@@ -8,14 +8,17 @@ json1 = "{'hello':'world', 'hi': 'hello', 'you':'me'}"
 
 json2 = "{'hello': 'world', 'hi': 'helloo', 'you': 'me'}"
 
-json1 = json.loads(json1)
 
-json2 = json.loads(json2)
+def getJSONDIff(json1, json2):
+    json1 = json.loads(json1)
+    json2 = json.loads(json2)
 
-keysList1 = json1.keys()
+    returnList = []
 
-keysList2 = json2.keys()
+    for (key, value) in json1.items():
+        if json2[key] != value:
+            returnList.append(key)
 
-valuesList1 = json1.values()
+    sortlist = sorted(returnList)
 
-valuesList2 = json2.values()
+    return sortlist
